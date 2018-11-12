@@ -6,7 +6,7 @@ namespace PrototypePattern {
 			var builder : PrototypePattern.Builder = new PrototypePattern.Builder();
 	    	var i = 0;
     		for (i = 1; i <= 3; i += 1) {
-	        	console.log(builder.createOne("c" + i).toString());
+	        	console.log(builder.createOne("cell" + i).toString());
     		}
 
 		}

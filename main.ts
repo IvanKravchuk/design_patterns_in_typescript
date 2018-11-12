@@ -34,11 +34,11 @@ namespace Patterns {
 
 	function printMenu() : void {
 		var menu =	"= Creational Patterns == \n" +
-					"  1: Singleton \n" +
-					"  2: Abstract factory \n" +
-					"  3: Factory method \n" +
-					"  4: Builder \n" +
-					"  5: Prototype \n\n" +
+		            "  1: Abstract factory \n" +
+		            "  2: Builder \n" +
+		            "  3: Factory method \n" +
+		            "  4: Prototype \n\n" +
+		            "  5: Singleton \n" +
 					"= Structural Patterns == \n" +
 					"  6: Adapter \n" +
 					"  7: Bridge \n" +
@@ -76,11 +76,11 @@ namespace Patterns {
 		printMenu();
 	   	rl.question("Which pattern would you like to check?   ", function(answer) {
 			switch(+answer) {
-				case 1 : show(SingletonPattern); break;
-				case 2 : show(AbstractFactoryPattern); break;
+				case 1 : show(AbstractFactoryPattern); break;
+				case 2 : show(BuilderPattern); break;
 				case 3 : show(FactoryMethodPattern); break;
-				case 4 : show(BuilderPattern); break;
-				case 5 : show(PrototypePattern); break;
+				case 4 : show(PrototypePattern); break;
+				case 5 : show(SingletonPattern); break;
 				case 6 : show(AdapterPattern); break;
 				case 7 : show(BridgePattern); break;
 				case 8 : show(CompositePattern); break;

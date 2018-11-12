@@ -3,13 +3,13 @@ namespace SingletonPattern {
 	export namespace Demo {
 
 		export function show() : void {
-			const singleton1 = SingletonPattern.Singleton.getInstance();
-			const singleton2 = SingletonPattern.Singleton.getInstance();
+			const goverment1 = SingletonPattern.Goverment.election();
+			const goverment2 = SingletonPattern.Goverment.election();
 
-			if (singleton1 === singleton2) {
-				console.log("two singletons are equivalent");
+			if (goverment1 === goverment2) {
+				console.log("two goverments are equivalent");
 			} else {
-				console.log("two singletons are not equivalent");
+				console.log("two goverments are not equivalent");
 			}
 		}
 	}

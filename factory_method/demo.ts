@@ -3,11 +3,11 @@
 namespace FactoryMethodPattern {
 	export namespace Demo {
 		export function show() : void {
-		    var a: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("A");
-		    var b: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("B");
+		    var d: FactoryMethodPattern.AbstractMold = FactoryMethodPattern.ToyFactory.createToy("Duck");
+		    var c: FactoryMethodPattern.AbstractMold = FactoryMethodPattern.ToyFactory.createToy("Car");
 
-		    console.log(a.method());
-		    console.log(b.method());
+		    console.log(d.inject());
+		    console.log(c.inject());
 		};
 	}
 }

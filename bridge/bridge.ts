@@ -1,53 +1,66 @@
 namespace BridgePattern {
 
-    export class Abstraction {
-        implementor: Implementor;
-        constructor(imp: Implementor) {
-            this.implementor = imp;
-        }
+    interface Device {
+        name: string;
+        isLaunch: boolean;
+        isEnabled(): boolean;
+        enable(): void;
+        disable(): void;
+    }
 
-        public callIt(s: String): void {
-            throw new Error("This method is abstract!");
+    export class Remote {
+        protected device: Device;
+        constructor(device: Device) {
+            this.device = device;
+        }
+        togglePower() {
+            if (this.device.isEnabled()) {
+                this.device.disable();
+                console.log(`${this.device.name} is On!`);
+            } else {
+                this.device.enable();
+                console.log(`${this.device.name} is Off!`);
+            }
         }
     }
 
-    export class RefinedAbstractionA extends Abstraction {
-        constructor(imp: Implementor) {
-            super(imp);
+    export class AdvancedRemote extends Remote {
+        mute() {
+            console.log(`${this.device.name} is muted!`);
         }
-
-        public callIt(s: String): void {
-            console.log("This is RefinedAbstractionA");
-            this.implementor.callee(s);
+        volumeDown() {
+            // this.device.setVolume(this.device.getVolume() - 10)
         }
-    }
-
-    export class RefinedAbstractionB extends Abstraction {
-        constructor(imp: Implementor) {
-            super(imp);
-        }
-
-        public callIt(s: String): void {
-            console.log("This is RefinedAbstractionB");
-            this.implementor.callee(s);
+        volumeUp() {
+            // this.device.setVolume(this.device.getVolume() + 10)
         }
     }
 
-    export interface Implementor {
-        callee(s: any): void;
-    }
-
-    export class ConcreteImplementorA implements Implementor {
-        public callee(s: any) : void {
-            console.log("`callee` of ConcreteImplementorA is being called.");
-            console.log(s);
+    export class TV implements Device{
+        public name = 'TV';
+        public isLaunch: boolean;
+        isEnabled(): boolean {
+            return this.isLaunch;
+        }
+        enable(): void {
+            this.isLaunch = true;
+        }
+        disable(): void {
+            this.isLaunch = false;
         }
     }
 
-    export class ConcreteImplementorB implements Implementor {
-        public callee(s: any) : void {
-            console.log("`callee` of ConcreteImplementorB is being called.");
-            console.log(s);
+    export class Radio implements Device{
+        public name = 'Radio';
+        public isLaunch: boolean;
+        isEnabled(): boolean {
+            return this.isLaunch;
+        }
+        enable(): void {
+            this.isLaunch = true;
+        }
+        disable(): void {
+            this.isLaunch = false;
         }
     }
 }

@@ -1,72 +1,127 @@
 namespace AbstractFactoryPattern {
-    export interface AbstractProductA {
-        methodA(): string;
+    export interface AbstractWheel {
+        spampWheel(): string;
     }
-    export interface AbstractProductB {
-        methodB(): number;
+    export interface AbstractHood {
+        spampHood(): string;
+    }
+    export interface AbstractDoor{
+        spampDoor(): string;
     }
 
     export interface AbstractFactory {
-        createProductA(param?: any) : AbstractProductA;
-        createProductB() : AbstractProductB;
+        createWheel() : AbstractWheel;
+        createHood() : AbstractHood;
+        createDoor() : AbstractDoor;
     }
 
 
-    export class ProductA1 implements AbstractProductA {
-        methodA = () => {
-            return "This is methodA of ProductA1";
+    export class WheelM1 implements AbstractWheel {
+        spampWheel = () => {
+            return "This is spampWheel of Model1";
         }
     }
-    export class ProductB1 implements AbstractProductB {
-        methodB = () => {
-            return 1;
+    export class HoodM1 implements AbstractHood {
+        spampHood = () => {
+            return "This is spampHood of Model1";
         }
     }
-
-    export class ProductA2 implements AbstractProductA {
-        methodA = () => {
-            return "This is methodA of ProductA2";
-        }
-    }
-    export class ProductB2 implements AbstractProductB {
-        methodB = () => {
-            return 2;
+    export class DoorM1 implements AbstractDoor {
+        spampDoor = () => {
+            return "This is spampDoor of Model1";
         }
     }
 
-
-    export class ConcreteFactory1 implements AbstractFactory {
-        createProductA(param?: any) : AbstractProductA {
-            return new ProductA1();
-        }
-
-        createProductB(param?: any) : AbstractProductB {
-            return new ProductB1();
+    export class WheelM2 implements AbstractWheel {
+        spampWheel = () => {
+            return "This is spampWheel of Model2";
         }
     }
-    export class ConcreteFactory2 implements AbstractFactory {
-        createProductA(param?: any) : AbstractProductA {
-            return new ProductA2();
+    export class HoodM2 implements AbstractHood {
+        spampHood = () => {
+            return "This is spampHood of Model2";
         }
-
-        createProductB(param?: any) : AbstractProductB {
-            return new ProductB2();
+    }
+    export class DoorM2 implements AbstractDoor {
+        spampDoor = () => {
+            return "This is spampDoor of Model2";
         }
     }
 
+    export class WheelM3 implements AbstractWheel {
+        spampWheel = () => {
+            return "This is spampWheel of Model3";
+        }
+    }
+    export class HoodM3 implements AbstractHood {
+        spampHood = () => {
+            return "This is spampHood of Model3";
+        }
+    }
+    export class DoorM3 implements AbstractDoor {
+        spampDoor = () => {
+            return "This is spampDoor of Model3";
+        }
+    }
+
+
+    export class Model1Factory implements AbstractFactory {
+        createWheel() : AbstractWheel {
+            return new WheelM1();
+        }
+
+        createHood() : AbstractHood {
+            return new HoodM1();
+        }
+
+        createDoor() : AbstractDoor {
+            return new DoorM1();
+        }
+    }
+
+    export class Model2Factory implements AbstractFactory {
+        createWheel() : AbstractWheel {
+            return new WheelM2();
+        }
+
+        createHood() : AbstractHood {
+            return new HoodM2();
+        }
+
+        createDoor() : AbstractDoor {
+            return new DoorM2();
+        }
+    }
+
+    export class Model3Factory implements AbstractFactory {
+        createWheel() : AbstractWheel {
+            return new WheelM3();
+        }
+
+        createHood() : AbstractHood {
+            return new HoodM3();
+        }
+
+        createDoor() : AbstractDoor {
+            return new DoorM3();
+        }
+    }
 
     export class Tester {
-        private abstractProductA: AbstractProductA;
-        private abstractProductB: AbstractProductB;
+        private abstractWheel: AbstractWheel;
+        private abstractHood: AbstractHood;
+        private abstractDoor: AbstractDoor;
 
         constructor(factory: AbstractFactory) {
-            this.abstractProductA = factory.createProductA();
-            this.abstractProductB = factory.createProductB();
+            this.abstractWheel = factory.createWheel();
+            this.abstractHood = factory.createHood();
+            this.abstractDoor = factory.createDoor();
         }
 
         public test(): void {
-            console.log(this.abstractProductA.methodA());
-            console.log(this.abstractProductB.methodB());
+            console.log(this.abstractWheel.spampWheel());
+            console.log(this.abstractHood.spampHood());
+            console.log(this.abstractDoor.spampDoor());
         }
     }
 

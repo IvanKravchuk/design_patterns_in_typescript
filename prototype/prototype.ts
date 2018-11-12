@@ -1,39 +1,39 @@
 namespace PrototypePattern {
     export interface Prototype {
-        clone(): Prototype;
+        split(): Prototype;
         toString(): string;
     }
 
-    export class Concrete1 implements Prototype {
+    export class SingleCellOrganism1 implements Prototype {
 
-        clone() : Prototype {
-            return new Concrete1();
+        split() : Prototype {
+            return new SingleCellOrganism1();
         }
 
         toString(): string {
-            return "This is Concrete1";
+            return "This is SingleCellOrganism1";
         }
     }
 
-    export class Concrete2 implements Prototype {
+    export class SingleCellOrganism2 implements Prototype {
 
-        clone() : Prototype {
-            return new Concrete2();
+        split() : Prototype {
+            return new SingleCellOrganism2();
         }
 
         toString(): string {
-            return "This is Concrete2";
+            return "This is SingleCellOrganism2";
         }
     }
 
-    export class Concrete3 implements Prototype {
+    export class SingleCellOrganism3 implements Prototype {
 
-        clone() : Prototype {
-            return new Concrete3();
+        split() : Prototype {
+            return new SingleCellOrganism3();
         }
 
         toString(): string {
-            return "This is Concrete3";
+            return "This is SingleCellOrganism3";
         }
     }
 
@@ -42,14 +42,14 @@ namespace PrototypePattern {
         private prototypeMap: { [s: string]: Prototype; } = {};
 
         constructor() {
-            this.prototypeMap['c1'] = new Concrete1();
-            this.prototypeMap['c2'] = new Concrete2();
-            this.prototypeMap['c3'] = new Concrete3();
+            this.prototypeMap['cell1'] = new SingleCellOrganism1();
+            this.prototypeMap['cell2'] = new SingleCellOrganism2();
+            this.prototypeMap['cell3'] = new SingleCellOrganism3();
         }
 
         createOne(s: string): Prototype {
             console.log(s);
-            return this.prototypeMap[s].clone();
+            return this.prototypeMap[s].split();
         }
     }
 }

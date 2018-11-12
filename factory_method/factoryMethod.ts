@@ -1,28 +1,28 @@
 namespace FactoryMethodPattern {
 
-    export interface AbstractProduct {
-        method(param?: any) : void;
+    export interface AbstractMold {
+        inject() : string;
     }
 
-    export class ConcreteProductA implements AbstractProduct {
-        method = (param?: any) => {
-            return "Method of ConcreteProductA";
+    export class ToyDuckMold implements AbstractMold {
+        inject = () => {
+            return "Method of ToyDuckMold";
         }
     }
 
-    export class ConcreteProductB implements AbstractProduct {
-        method = (param?: any) => {
-            return "Method of ConcreteProductB";
+    export class ToyCarMold implements AbstractMold {
+        inject = () => {
+            return "Method of ToyCarMold";
         }
     }
 
 
-    export namespace ProductFactory {
-        export function createProduct(type: string) : AbstractProduct {
-            if (type === "A") {
-                return new ConcreteProductA();
-            } else if (type === "B") {
-                return new ConcreteProductB();
+    export namespace ToyFactory {
+        export function createToy(type: string) : AbstractMold {
+            if (type === "Duck") {
+                return new ToyDuckMold();
+            } else if (type === "Car") {
+                return new ToyCarMold();
             }
 
             return null;

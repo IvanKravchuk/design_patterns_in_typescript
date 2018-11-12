@@ -1,68 +1,81 @@
 namespace BuilderPattern {
-    export class UserBuilder {
-        private name: string;
-        private age: number;
-        private phone: string;
-        private address: string;
+    export class MealBuilder {
+        private clientName: string;
+        private burger: string;
+        private cola: number;
+        private desert: string;
+        private toy: string;
 
         constructor(name: string) {
-            this.name = name;
+            this.clientName = name;
         }
 
-        get Name() {
-            return this.name;
+        get ClientName() {
+            return this.clientName;
         }
-        setAge(value: number): UserBuilder {
-            this.age = value;
+        setBurger(value: string): MealBuilder {
+            this.burger = value;
             return this;
         }
-        get Age() {
-            return this.age;
+        get Burger() {
+            return this.burger;
         }
-        setPhone(value: string): UserBuilder {
-            this.phone = value;
+        setCola(value: number): MealBuilder {
+            this.cola = value;
             return this;
         }
-        get Phone() {
-            return this.phone;
+        get Cola() {
+            return this.cola;
         }
-        setAddress(value: string): UserBuilder {
-            this.address = value;
+        setDessert(value: string): MealBuilder {
+            this.desert = value;
             return this;
         }
-        get Address() {
-            return this.address;
+        get Dessert() {
+            return this.desert;
+        }
+        setToy(value: string): MealBuilder {
+            this.toy = value;
+            return this;
+        }
+        get Toy() {
+            return this.toy;
         }
 
-        build(): User {
-            return new User(this);
+        build(): Meal {
+            return new Meal(this);
         }
     }
 
-    export class User {
-        private name: string;
-        private age: number;
-        private phone: string;
-        private address: string;
+    export class Meal {
+        private clientName: string;
+        private burger: string;
+        private cola: number;
+        private dessert: string;
+        private toy: string;
 
-        constructor(builder: UserBuilder) {
-            this.name = builder.Name;
-            this.age = builder.Age;
-            this.phone = builder.Phone;
-            this.address = builder.Address
+        constructor(builder: MealBuilder) {
+            this.clientName = builder.ClientName;
+            this.burger = builder.Burger;
+            this.cola = builder.Cola;
+            this.dessert = builder.Dessert;
+            this.toy = builder.Toy;
         }
 
-        get Name() {
-            return this.name;
+        get ClientName() {
+            return this.clientName;
         }
-        get Age() {
-            return this.age;
+        get Burger() {
+            return this.burger;
         }
-        get Phone() {
-            return this.phone;
+        get Cola() {
+            return this.cola;
         }
-        get Address() {
-            return this.address;
+        get Dessert() {
+            return this.dessert;
+        }
+        get Toy() {
+            return this.toy;
         }
     }
 
